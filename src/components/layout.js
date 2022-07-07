@@ -1,56 +1,37 @@
-import { Link, useStaticQuery, graphql } from 'gatsby'
-import React from "react";
+import { useStaticQuery, graphql } from 'gatsby'
+import React from 'react'
 
-import {
-  container,
-  heading,
-  navLinks,
-  navLinkItem,
-  navLinkText,
-} from "./layout.module.css";
+import { container, heading } from './layout.module.css'
+import Navi from './navi'
 
 function Layout({ pageTitle, children }) {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
+    const data = useStaticQuery(graphql`
+        query {
+            site {
+                siteMetadata {
+                    title
+                }
+            }
         }
-      }
-    }
-  `)
-  return (
-    <div className={container}>
-      <title>{pageTitle} | {data.site.siteMetadata.title}</title>
-      <header>{data.site.siteMetadata.title}</header>
-      <nav>
-        <ul className={navLinks}>
-          <li className={navLinkItem}>
-            <Link className={navLinkText} to="/">
-              Home
-            </Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link className={navLinkText} to="/about">
-              About
-            </Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link className={navLinkText} to="/blog">
-              Blog
-            </Link>
-          </li>
-        </ul>
-      </nav>
+    `)
+    return (
+        <>
+            <Navi></Navi>
+            <div className={container}>
+                <title>
+                    {pageTitle} | {data.site.siteMetadata.title}
+                </title>
+                {/* <header>{data.site.siteMetadata.title}</header> */}
 
-      <main>
-        <h1 className={heading}>{pageTitle}</h1>
-        {children}
-      </main>
+                <main>
+                    <h1 className={heading}>{pageTitle}</h1>
+                    {children}
+                </main>
 
-      <div>Copyright All Rights</div>
-    </div>
-  );
+                {/* <div>Copyright All Rights</div> */}
+            </div>
+        </>
+    )
 }
 
-export default Layout;
+export default Layout

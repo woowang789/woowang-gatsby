@@ -1,0 +1,33 @@
+.nav-area{
+    z-index: 999;
+    top: 0px;
+    position: sticky;
+    background-color: #2A2D32;
+    padding: 0 30px;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    
+}
+.full{
+    width: 100%;
+}
+
+.nav-head{
+    font-weight: bolder;
+    color: white;
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav-link-text {
+    font-weight: lighter;
+    color: white;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
